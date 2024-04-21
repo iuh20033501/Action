@@ -1,7 +1,7 @@
-name: github-action
+name: hello-world
 on:
   push:
-    branches: [update]
+    branches: [master]
 
 jobs:
   docker:
@@ -27,16 +27,16 @@ jobs:
           key: ${{ runner.os }}-buildx-
 
       - name: Build and Push Docker Image
-      uses: docker/build-push-action@v2
-      id: docker_build
-      with:
-        context: ./
-        file: ./Dockerfile
-        builder: ${{ steps.buildx.outputs.name }}
-        push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/githubactions:latest
-        cache-from: type=local,src=/tmp/.buildx-cache
-        cache-to: type=local,dest=/tmp/.buildx-cache
+        uses: docker/build-push-action@v2
+        id: docker_build
+        with:
+          context: ./
+          file: ./Dockerfile
+          builder: ${{ steps.buildx.outputs.name }}
+          push: true
+          tags: ${{secrets.DOCKERHUB_USERNAME}}/hello-world
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache
 
       - name: Verify
         run: echo ${{ steps.docker_build.outputs.digest }}
