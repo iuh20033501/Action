@@ -1,4 +1,4 @@
-name: hello-world
+name: github-action
 on:
   push:
     branches: [update]
@@ -34,7 +34,7 @@ jobs:
           file: ./Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: ${{secrets.DOCKERHUB_USERNAME}}/hello-world:v1
+          tags: ${{secrets.DOCKERHUB_USERNAME}}/github-action:v1
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
 
