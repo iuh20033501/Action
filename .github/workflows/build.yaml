@@ -1,7 +1,7 @@
-name: cicd
+name: github-action
 on:
   push:
-    branches: [main, update]
+    branches: [update]
 
 jobs:
   docker:
@@ -34,7 +34,7 @@ jobs:
           file: ./Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: ${{secrets.DOCKERHUB_USERNAME}}/cicd
+          tags: ${{secrets.DOCKERHUB_USERNAME}}/github-action
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
 
