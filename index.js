@@ -5,7 +5,7 @@ export default function App() {
   
   return (
    <View>
-    <Text>Github-action</Text>
+    <Text>Oge</Text>
    </View>
   );
 }
