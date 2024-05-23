@@ -5,7 +5,7 @@ export default function App() {
   
   return (
    <View>
-    <Text>Test truoc khi bao cao</Text>
+    <Text>Bao cao</Text>
    </View>
   );
 }
